@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>beyond_brief</title>
+	
+  <style>
+	  
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    }
+	  
+    #title {
+    position: absolute;
+    right: 56.25vw;
+    top: 9.25vh;
+    font-size: 2.96vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Semibold */
+    letter-spacing: -0.22vw;
+    color: #000;
+    text-transform: uppercase;
+	  }  
+	#date {
+	  position: absolute;
+	  left: 5.25vw;
+	  bottom: 9.25vh;
+      font-size: 2.96vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600; 
+      letter-spacing: -0.22vw; 
+      color: #000; 
+	  }
+	  
+	  #h1 {
+	  position: absolute; 
+      right: 56.25vw;
+	  bottom: 9.25vh;
+      font-size: 4.44vh; transform: scaleY(1.25);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold; 
+      color: #000;
+	  text-transform: uppercase;
+	  }  
+	#h2 {
+	  position: absolute; 
+      right: 56.25vw;     
+      bottom: 15vh;     
+      font-size: 3.7vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: regular; 
+	  letter-spacing: -0.22vw;
+      color: #000;
+	  }
+	  
+	.sections {
+    position: absolute;
+    left: 5.25vw; 
+    bottom: 45vh;
+    font-size: 2.25vh;
+    font-family: 'Montserrat', sans-serif;
+	  }
+	.sections a {
+	  color: inherit;       
+      text-decoration: none;     
+	  transition: font-weight 0.2s ease;      
+	  } 
+	.sections a:hover {
+      text-decoration: none;      
+      color: inherit;             
+      font-weight: bold;
+	  }
+	  
+	  .palette {
+	  position: absolute;
+      bottom: 22.5vh; 
+      left: 35.75vw;  
+      display: flex;
+      gap: 0.35vw; 
+      width: 100%; 
+      height: 3.5vh; 
+    }
+    .square {
+      height: 3.5vh; 
+      width: 3.5vh; 	
+    }
+    /* Individual control for each square */
+    .square1 {
+      background-color: #181632;
+    }
+    .square2 {
+      background-color: #232041;
+    }
+    .square3 {
+      background-color: #725776;
+    }
+    .square4 {
+      background-color: #be8cac;
+    }
+	  
+	  .navicon {
+  position: fixed;    
+  top: 9.25vh;            
+  left: 5.25vw;          
+  width: 3.5vh;          
+  cursor: pointer;
+  z-index: 1010;
+}
+    .bar {
+  height: 0.2vh;           
+  width: 3.5vh;         
+  background-color: black;
+  margin: 1vh 0;         
+  border-radius: 0.2vh;
+  transition: 0.3s;
+}
+.navicon.active .bar {
+  background-color: white; 
+}
+.navicon.active .bar:nth-child(2) {
+  opacity: 0; 
+}
+.navicon.active .bar:nth-child(1) {
+  transform: translateY(1.175vh) rotate(45deg); 
+}
+
+.navicon.active .bar:nth-child(3) {
+  transform: translateY(-1.175vh) rotate(-45deg); 
+}
+	  .navicon:hover .bar {
+          transform: scaleY(4);   /* makes bars appear 'bold' when hovered */
+}
+      .navicon.active:hover .bar:nth-child(1) {
+          transform: translateY(1.175vh) rotate(45deg) scaleY(4); 
+}
+      .navicon.active:hover .bar:nth-child(3) {
+          transform: translateY(-1.175vh) rotate(-45deg) scaleY(4);
+}
+	 .sidebar {
+  position: fixed;
+  top: 0;
+  left: -20vw;
+  width: 20vw;
+  height: 100%;
+  background-color: black;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.navmenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.25vh; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  margin-left: 5.25vw;
+}
+
+.navmenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navmenu a:hover {
+  text-decoration: none;      
+  color: white;             
+  font-weight: bold;
+}
+	  #home_page_03 {
+		  position: absolute;
+		  right: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+		  z-index: 1000;
+	  }
+	  
+	   #golden, #open_sesame, #spirit, #lines_moments {
+		  position: absolute;
+		  right: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+	  }
+	  
+	  .text-container {
+  position: absolute;
+  bottom: 35.75vh ;
+  right: 56.25vw; 
+  width: 45vh;           
+  height: auto;          
+  overflow-y: auto;       
+  overflow-x: hidden;     
+  padding: 1rem;
+  box-sizing: border-box;
+}
+	
+	.text-content {
+		font-family: Baskerville, "serif";
+		font-size: 2.25vh ;
+		font-weight: 200 ;
+		text-align: right;
+	}
+	  
+	.menu_container {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 7.5vh;
+		display: flex;
+		justify-content: center;
+		text-decoration: none;
+		background-color: white;
+	}
+	.menu_text {
+
+		transform: translateY(2.5vh);
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.75vh;
+		text-transform: uppercase;
+	}
+	.menu_text a {
+		text-decoration: none;
+		color: black;
+	}
+	.menu_text a:hover {
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+	  
+  </style>
+</head>
+
+<body>
+	<div id="title">Portfolio</div>
+    <div id="date">2025</div>
+<div id="h1">Beyond the brief</div>
+<div id="h2">Unbuilt Narratives</div>
+<div class="palette">
+     <div class="square square1" id="square1"></div>
+     <div class="square square2" id="square2"></div>
+     <div class="square square3" id="square3"></div>
+     <div class="square square4" id="square4"></div>
+    </div>
+	
+<div class="sections">
+	 <div id="h3">
+	   <a href="golden.html">01. Golden</a></div>
+     <div id="h4">
+	   <a href="open_sesame.html">02. Open Sesame</a></div>
+	 <div id="h5">
+	   <a href="spirit.html">03. Spirit</a></div>
+</div>
+	
+<img src="Images/home_page_03.JPG" id="home_page_03" alt=""/>
+<img src="Images/Motif_05.jpg" id="golden" alt=""/> 
+<img src="Images/Motif_06.jpg" id="open_sesame" alt=""/>
+<img src="Images/Motif_07.jpg" id="spirit" alt=""/>
+	
+	
+<div class="navicon" id="navicon">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+	
+<div class="sidebar" id="sidebar">
+  <nav class="navmenu">
+	<a href="index.html">Home Page</a>
+    <a href="architecture_studio.html" style="margin-top: 1vw;">Architecture Studio</a>
+	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Resonant Heritage</a>
+	  <a href="aromatic_landscape.html" style="margin-left: 2vw; font-size: 1.90vh;">Aromatic Landscape</a>
+	  <a href="shared_crossings.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Shared Crossings</a>
+    <a href="design_build.html" style="margin-top: 1vw;">Design &amp; Build </a>
+	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Interlacing</a>
+	  <a href="stair_house.html" style="margin-left: 2vw; font-size: 1.90vh;">The Stair House</a>
+	  <a href="chef_corner.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Mini Chef's Corner</a>
+	<a href="beyond_the_brief.html" style="margin-top: 1vw;">Beyond the Brief </a>
+	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Golden</a>
+	  <a href="open_sesame.html" style="margin-left: 2vw; font-size: 1.90vh;">Open Sesame</a>
+	  <a href="spirit.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Spirit</a>
+	<a href="lets_connect.html" style="margin-top: 1vw;">Let's Connect </a>	  
+  </nav>
+	</div>
+	
+<div class="text-container">
+  <div class="text-content">
+    <p><em>For some time now, I’ve had these resurging memories. They’ve grown so potent that I felt the need to translate them. Into a text, an illustration, or both.<br>I wanted to set my mind at ease, beyond just the ambition to share them with someone other than myself.</em></p>
+  </div>
+</div>
+	
+	<div class="menu_container" id="menu_container">
+		<div class="menu_text" id="menu_text">
+			<a href="index.html" style="margin-right: 6.35vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6.35vw; text-decoration: none; color: black;">Let's Connect</a>
+		</div>
+	</div>
+	
+<script>
+const navicon = document.getElementById("navicon");
+const sidebar = document.getElementById("sidebar");
+
+navicon.addEventListener("click", () => {
+  navicon.classList.toggle("active");
+  sidebar.classList.toggle("open");
+});
+
+const h3 = document.getElementById('h3');
+const h4 = document.getElementById('h4');
+const h5 = document.getElementById('h5');
+
+const golden = document.getElementById('golden');
+const opensesame = document.getElementById('open_sesame');
+const spirit = document.getElementById('spirit');
+const homePageImage03 = document.getElementById('home_page_03');
+
+const square1 = document.getElementById('square1');
+const square2 = document.getElementById('square2');
+const square3 = document.getElementById('square3');
+const square4 = document.getElementById('square4');
+
+// Set initial styles
+[golden, opensesame, spirit].forEach(img => {
+  img.style.opacity = '0';
+  img.style.position = 'absolute';
+  img.style.right = '5.25vw';
+  img.style.top = '9.25vh';
+  img.style.height = '81.5vh';
+  img.style.width = '81.5vh';
+  img.style.transition = 'opacity 0.5s ease';
+});
+
+// H3 Events
+h3.addEventListener('mouseenter', () => {
+  golden.style.opacity = '1';
+  homePageImage03.style.opacity = '0';
+  square1.style.backgroundColor = '#9AC8E0';
+  square2.style.backgroundColor = '#6A8542';
+  square3.style.backgroundColor = '#AC211E';
+  square4.style.backgroundColor = '#65422E';
+});
+
+h3.addEventListener('mouseleave', () => {
+  golden.style.opacity = '0';
+  homePageImage03.style.opacity = '1';
+  square1.style.backgroundColor = '#181632';
+  square2.style.backgroundColor = '#232041';
+  square3.style.backgroundColor = '#725776';
+  square4.style.backgroundColor = '#be8cac';
+});
+
+// H4 Events
+h4.addEventListener('mouseenter', () => {
+  opensesame.style.opacity = '1';
+  homePageImage03.style.opacity = '0';
+  square1.style.backgroundColor = '#F39478';
+  square2.style.backgroundColor = '#994F1E';
+  square3.style.backgroundColor = '#5C2633';
+  square4.style.backgroundColor = '#1F3173';
+});
+
+h4.addEventListener('mouseleave', () => {
+  opensesame.style.opacity = '0';
+  homePageImage03.style.opacity = '1';
+  square1.style.backgroundColor = '#181632';
+  square2.style.backgroundColor = '#232041';
+  square3.style.backgroundColor = '#725776';
+  square4.style.backgroundColor = '#be8cac';
+});
+	
+// H5 Events
+h5.addEventListener('mouseenter', () => {
+  spirit.style.opacity = '1';
+  homePageImage03.style.opacity = '0';
+  square1.style.backgroundColor = '#F6CD5B';
+  square2.style.backgroundColor = '#DD8553';
+  square3.style.backgroundColor = '#306086';
+  square4.style.backgroundColor = '#883968';
+});
+
+h5.addEventListener('mouseleave', () => {
+  spirit.style.opacity = '0';
+  homePageImage03.style.opacity = '1';
+  square1.style.backgroundColor = '#181632';
+  square2.style.backgroundColor = '#232041';
+  square3.style.backgroundColor = '#725776';
+  square4.style.backgroundColor = '#be8cac';
+});
+	
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stair_house</title>
+	
+<style>
+	
+	html, body {
+      margin: 0;          
+      padding: 0;         
+      width: 100vw;       
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+  
+	#h1 {
+	  position: absolute; 
+      right: 56.25vw;
+	  bottom: 9.25vh;
+      font-size: 4.44vh; transform: scaleY(1.25);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold; 
+      color: #000;
+	  text-transform: uppercase;
+	  z-index: 1000;
+	  }  
+	#h2 {
+	  position: absolute; 
+      right: 56.25vw;     
+      bottom: 15vh;     
+      font-size: 3.7vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: regular; 
+	  letter-spacing: -0.22vw;
+	  z-index: 1000;
+      color: #000;
+	  <span style="text-transform: capitalize;">Architect</span> on the 
+      <span style="text-transform: capitalize;">path</span> to 
+      <span style="text-transform: capitalize;">practice</span>.
+	  
+	  }
+	
+	.palette {
+	  position: absolute;
+      bottom: 22.5vh; 
+      left: 35.75vw; 
+      display: flex;
+      gap: 0.35vw; 
+      width: 100%; 
+      height: 3.5vh; 
+	  z-index: 1000;
+    }
+    .square {
+      height: 3.5vh; 
+      width: 3.5vh; 	
+    }
+    /* Individual control for each square */
+    .square1 {
+      background-color: #9D4646;
+    }
+    .square2 {
+      background-color: #819576;
+    }
+    .square3 {
+      background-color: #E4C3E5;
+    }
+    .square4 {
+      background-color: #89A3D6;
+    }	  
+
+    .navicon {
+  position: fixed;    
+  top: 9.25vh;            
+  left: 5.25vw;          
+  width: 3.5vh;          
+  cursor: pointer;
+  z-index: 1010;
+}
+    .bar {
+  height: 0.2vh;           
+  width: 3.5vh;         
+  background-color: black;
+  margin: 1vh 0;         
+  border-radius: 0.2vh;
+  transition: 0.3s;
+}
+.navicon.active .bar {
+  background-color: white; 
+}
+.navicon.active .bar:nth-child(2) {
+  opacity: 0; 
+}
+.navicon.active .bar:nth-child(1) {
+  transform: translateY(1.175vh) rotate(45deg); 
+}
+
+.navicon.active .bar:nth-child(3) {
+  transform: translateY(-1.175vh) rotate(-45deg); 
+}
+	  .navicon:hover .bar {
+          transform: scaleY(4);   /* makes bars appear 'bold' when hovered */
+}
+      .navicon.active:hover .bar:nth-child(1) {
+          transform: translateY(1.175vh) rotate(45deg) scaleY(4); 
+}
+      .navicon.active:hover .bar:nth-child(3) {
+          transform: translateY(-1.175vh) rotate(-45deg) scaleY(4);
+}
+	 .sidebar {
+  position: fixed;
+  top: 0;
+  left: -20vw;
+  width: 20vw;
+  height: 100%;
+  background-color: black;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.navmenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.25vh; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  margin-left: 5.25vw;
+}
+
+.navmenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navmenu a:hover {
+  text-decoration: none;      
+  color: white;             
+  font-weight: bold;
+}
+	
+	#project_02 {
+		  position: absolute;
+		  right: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+	}
+	
+	#project_02_02 {
+		  position: absolute;
+		  left: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+	}
+	
+	#house {
+		position: absolute;
+		width: 100vw;
+		margin-top: 100vh;
+	}
+	
+	.menu_container {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 7.5vh;
+		display: flex;
+		justify-content: center;
+		text-decoration: none;
+		background-color: white;
+	}
+	.menu_text {
+
+		transform: translateY(2.5vh);
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.75vh;
+		text-transform: uppercase;
+	}
+	.menu_text a {
+		text-decoration: none;
+		color: black;
+	}
+	.menu_text a:hover {
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+
+	</style>
+</head>
+
+<body>
+<div id="h1">The Stair House</div>
+<div id="h2">Wood, Stone, Metal</div>
+<div class="palette">
+     <div class="square square1" id="square1"></div>
+     <div class="square square2" id="square2"></div>
+     <div class="square square3" id="square3"></div>
+     <div class="square square4" id="square4"></div>
+</div>
+	
+	
+<div class="navicon" id="navicon">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+	
+<div class="sidebar" id="sidebar">
+  <nav class="navmenu">
+	<a href="index.html">Home Page</a>
+    <a href="architecture_studio.html" style="margin-top: 1vw;">Architecture Studio</a>
+	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Resonant Heritage</a>
+	  <a href="aromatic_landscape.html" style="margin-left: 2vw; font-size: 1.90vh;">Aromatic Landscape</a>
+	  <a href="shared_crossings.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Shared Crossings</a>
+    <a href="design_build.html" style="margin-top: 1vw;">Design &amp; Build </a>
+	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Interlacing</a>
+	  <a href="stair_house.html" style="margin-left: 2vw; font-size: 1.90vh;">The Stair House</a>
+	  <a href="chef_corner.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Mini Chef's Corner</a>
+	<a href="beyond_the_brief.html" style="margin-top: 1vw;">Beyond the Brief </a>
+	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Golden</a>
+	  <a href="open_sesame.html" style="margin-left: 2vw; font-size: 1.90vh;">Open Sesame</a>
+	  <a href="spirit.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Spirit</a>
+	<a href="lets_connect.html" style="margin-top: 1vw;">Let's Connect </a>	  
+  </nav>
+	</div>
+	
+<img src="Images/04_Project_02_01.jpg" id="project_02" alt=""/>
+<img src="Images/04_Project_02_02.jpg" id="project_02_02" alt=""/>
+<img src="Images/04_house.jpg" id="house" alt=""/>
+	
+	<div class="menu_container" id="menu_container">
+		<div class="menu_text" id="menu_text">
+			<a href="index.html" style="margin-right: 6.35vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6.35vw; text-decoration: none; color: black;">Let's Connect</a>
+		</div>
+	</div>
+	
+<script>
+
+	const navicon = document.getElementById("navicon");
+    const sidebar = document.getElementById("sidebar");
+
+    navicon.addEventListener("click", () => {
+      navicon.classList.toggle("active");
+      sidebar.classList.toggle("open"); 
+    });	
+	
+</script>	
+</body>
+</html>

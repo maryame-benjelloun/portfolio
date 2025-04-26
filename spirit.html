@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>spirit</title>
+</head>
+	
+<style>
+		
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    }
+	
+#h1 {
+	  position: absolute; 
+      right: 56.25vw;
+	  bottom: 9.25vh;
+      font-size: 4.44vh; transform: scaleY(1.25);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold; 
+      color: #000;
+	  text-transform: uppercase;
+	  }  
+	
+	.palette {
+	  position: absolute;
+      bottom: 15vh; 
+      left: 35.75vw;  
+      display: flex;
+      gap: 0.35vw; 
+      width: 100%; 
+      height: 3.5vh; 
+    }
+    .square {
+      height: 3.5vh; 
+      width: 3.5vh; 	
+    }
+    /* Individual control for each square */
+    .square1 {
+      background-color: #F6CD5B;
+    }
+    .square2 {
+      background-color: #DD8553;
+    }
+    .square3 {
+      background-color: #306086;
+    }
+    .square4 {
+      background-color: #883968;
+    }
+	
+.navicon {
+  position: fixed;    
+  top: 9.25vh;            
+  left: 5.25vw;          
+  width: 3.5vh;          
+  cursor: pointer;
+  z-index: 1010;
+}
+    .bar {
+  height: 0.2vh;           
+  width: 3.5vh;         
+  background-color: black;
+  margin: 1vh 0;         
+  border-radius: 0.2vh;
+  transition: 0.3s;
+}
+.navicon.active .bar {
+  background-color: white; 
+}
+.navicon.active .bar:nth-child(2) {
+  opacity: 0; 
+}
+.navicon.active .bar:nth-child(1) {
+  transform: translateY(1.175vh) rotate(45deg); 
+}
+
+.navicon.active .bar:nth-child(3) {
+  transform: translateY(-1.175vh) rotate(-45deg); 
+}
+	  .navicon:hover .bar {
+          transform: scaleY(4);   /* makes bars appear 'bold' when hovered */
+}
+      .navicon.active:hover .bar:nth-child(1) {
+          transform: translateY(1.175vh) rotate(45deg) scaleY(4); 
+}
+      .navicon.active:hover .bar:nth-child(3) {
+          transform: translateY(-1.175vh) rotate(-45deg) scaleY(4);
+}
+	 .sidebar {
+  position: fixed;
+  top: 0;
+  left: -20vw;
+  width: 20vw;
+  height: 100%;
+  background-color: black;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.navmenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.25vh; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  margin-left: 5.25vw;
+}
+
+.navmenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navmenu a:hover {
+  text-decoration: none;      
+  color: white;             
+  font-weight: bold;
+}
+	
+	#spirit {
+		  position: absolute;
+		  right: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+		  z-index: 1000;
+	  }
+	
+	.text-container {
+  position: absolute;
+  top: 14.75vh ;
+  left: 4.25vw; 
+  width: 81.5vh;           
+  height: 64.5vh;          
+  overflow-y: auto;       
+  overflow-x: hidden;     
+  padding: 1rem;
+  box-sizing: border-box;
+}
+	
+	.text-content {
+		font-family: Baskerville, "serif";
+		font-size: 2.25vh ;
+		font-weight: 200 ;
+		text-align: justify;
+	}
+	
+	.menu_container {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 7.5vh;
+		display: flex;
+		justify-content: center;
+		text-decoration: none;
+		background-color: white;
+	}
+	.menu_text {
+
+		transform: translateY(2.5vh);
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.75vh;
+		text-transform: uppercase;
+	}
+	.menu_text a {
+		text-decoration: none;
+		color: black;
+	}
+	.menu_text a:hover {
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+
+</style>
+	
+<body>
+	
+<div id="h1">Spirit</div>
+	
+<div class="palette">
+     <div class="square square1" id="square1"></div>
+     <div class="square square2" id="square2"></div>
+     <div class="square square3" id="square3"></div>
+     <div class="square square4" id="square4"></div>
+    </div>
+	
+	<img src="Images/Spirit.jpg" id="spirit" alt=""/> 
+	
+	<div class="navicon" id="navicon">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+	
+<div class="sidebar" id="sidebar">
+  <nav class="navmenu">
+	<a href="index.html">Home Page</a>
+    <a href="architecture_studio.html" style="margin-top: 1vw;">Architecture Studio</a>
+	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Resonant Heritage</a>
+	  <a href="aromatic_landscape.html" style="margin-left: 2vw; font-size: 1.90vh;">Aromatic Landscape</a>
+	  <a href="shared_crossings.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Shared Crossings</a>
+    <a href="design_build.html" style="margin-top: 1vw;">Design &amp; Build </a>
+	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Interlacing</a>
+	  <a href="stair_house.html" style="margin-left: 2vw; font-size: 1.90vh;">The Stair House</a>
+	  <a href="chef_corner.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Mini Chef's Corner</a>
+	<a href="beyond_the_brief.html" style="margin-top: 1vw;">Beyond the Brief </a>
+	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Golden</a>
+	  <a href="open_sesame.html" style="margin-left: 2vw; font-size: 1.90vh;">Open Sesame</a>
+	  <a href="spirit.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Spirit</a>
+	<a href="lets_connect.html" style="margin-top: 1vw;">Let's Connect </a>	  
+  </nav>
+</div>
+	
+<div class="text-container">
+  <div class="text-content">
+<p>
+That day, was one for the books.<br> 
+It was for the dreamers and thinkers. It was for the sad and lonely souls. It was for the hopeful and doubtful minds. It was for the kind and sensitive hearts. It was a red-letter moment if there ever was one.<br> 
+In the grand scheme of human anatomy, I am fairly certain some right-sided gyri have taken the shape of this very memory. I realize feathers have been ruffled. Yet, sometimes to be free is to harmlessly bend the mind to whatever reality we want to pour our heart in. More often than not, I let mine candidly wander into this one.</p>
+
+<p>
+It was a Sunday. I remember, since we only ever took long strolls on Sundays. It was a beautiful sunny day when we began our journey into the untrammelled Fès countryside. Lead by our collective tutor, I was accompanied by my brother and friends. Up on horses, with each their own. We were all so small at the time, the horses looked like behemoths in the wild. Kind to some, not unthreatening to others. With a four-beat gait, we could feel our body leaning from one side to the other, the steady hindlimb alternating movement working its way into our brain— a silent lullaby. Synchronized in our movements, we all came to the same understanding. <em>Today is special</em>. <em>Today we are free</em>. It was easy to let go in an environment such as that, bereft of nuisance— it was elementary. Then again, a lot was simple at that time.<br>
+Pacing up with a trot, I fleetingly greeted the farms along the way, making a few acquaintances in the meantime. From chickens to sheep, from goats to cows. I was beaming by the evening, from all the friends I had made that day. I couldn’t converse with them, however there was a peaceful understanding binding us. Though, because the world always needs balance, I also made an enemy. It was just as well, a four legged mammal with vocal chords powerful enough to even break havoc in the placid trans I was lost in. It started with a bark, it followed with panic. Not mine. Feeling the trembling barrel of the horse, my heart raced up from the rapid back-steps it was taking. To me, it was an inconvenience. To the horse, it was a matter of life and death. One would think that one of the two was trying to make-up for its petite size, but one shouldn’t make assumptions about one’s clearly hurt ego. Besides, the run-in was brief and soon enough the serenity settled back in, and remained.<br>
+At the foot of a hill is where I found my zenith. Going down a valley with meadows as far as the eye can see, is where I found my happy place. Up ahead, was the sun setting into the mountain. Glaring at me with a final breath, flooding my sight with orange beams of light— a kinetic sculpture inviting me into bliss. Warm to the eyes, warmer to the touch. In my right was a lavender field. Purple dots filling my nostrils with a softly sweet and woody smell. In my left was the complementary colour, adding to the already exhaustive escapade. There isn’t a single dissenting voice to contradict me when I tell you, a chortle escaped the horse as it was tickled by the long wheat leaves brushing against its fetlocks. Everyone was silent, as our minds were running wild. Everyone was muted, as our hearts were cheering loud.<br>
+A quintessential, timeless experience that resonates with humankind. To those with eyebrows, we could read the bewilderment in their eyes. To those with shoulders, we could perceive the thumping of their heart.
+</p>
+	  
+<p>
+I felt like <em>Spirit</em> that day. I dreamt I was an untamed and sassy tan stallion. Eyes full of attitude. Limbs full of speed. I imagined I had hoofs grazing the land, stumping into it with such power, I was propelled into the sky.<br>
+But where Spirit raced with an eagle, what did I do? What does freedom look like to me? </p>
+	  
+<p>
+  <em> Spirit</em>, in Anglo-Norman French, <em>esprit</em>, from Old French is derived from Latin <em>spiritus</em> meaning breath. It’s what gave us life, it’s what made us first cry. That first puff of air, dramatically awakens your lungs as much as your will to live. <em>Spiritus</em>, from the Latin <em>spirare</em>— the act of breathing itself. To some, it could be reduced to mere inhaling and exhaling. To others, it is more than survival. It’s an exchange of air between your environment and yourself. It’s what makes you want to keep doing it. It’s not the action itself, but the motivation behind that keeps you going.<br>
+  <em> Spirit</em>, translates into روح (ruh) in Arabic, meaning the soul— the essence of who you are. What it means to truly be yourself. I reckon I find it intangible, belonging to the unconscious. It will respond when triggered and might answer when called upon. It’s broken into a million pieces scattered across the world, within your mind and through the people that you meet. Your lifelong quest is to find them. And that’s where, I believe, we shall put our energy— our <em>breath</em>.</p>
+
+<p>
+When I ponder over what my spirit would look like, I, positively, do not fancy myself chasing a sky sniper in a feathered suit.<br>
+For now, I sit by a bonfire.
+</p>
+	
+<p>
+There, I am surrounded by people I love and trust. I am laughing loud, so much so my lungs almost give out— its echo ripping through the forest, sending the birds into flight.<br>
+There, with branches harvested from bear hands, the fire is made. The flames within, reflected white on the brown of my iris, translate all the sparkle I feel inside.<br>
+There, the burnt wood sends tremors of warmth. Rooted in the past, it captures the wisps of memories into a long lasting smoke. Mementos to stretch your lips up to your ears for years to come.<br>
+There, with the night settling all over us, we find comfort in the stories we tell. From either experience or an unbound imagination, it fills the air with compassion and fervour.<br>
+There, with the sound of nature taking its course, the love at present is taking the shape of stars. They burn with such vehemence and longing… longing that the smoke would not only trap the memories but time itself.</p>
+	  <p>
+And you, what does <em>your</em> spirit look like? </p>
+  </div>
+</div>
+
+	<div class="menu_container" id="menu_container">
+		<div class="menu_text" id="menu_text">
+			<a href="index.html" style="margin-right: 6.35vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6.35vw; text-decoration: none; color: black;">Let's Connect</a>
+		</div>
+	</div>
+	
+<script>
+const navicon = document.getElementById("navicon");
+const sidebar = document.getElementById("sidebar");
+
+navicon.addEventListener("click", () => {
+  navicon.classList.toggle("active");
+  sidebar.classList.toggle("open");
+});
+</script>
+	
+</body>
+</html>
+

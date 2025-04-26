@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>portfolio</title>
+	
+  <style>
+	  
+    html, body {
+      margin: 0;          
+      padding: 0;         
+      width: 100vw;       
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+	  
+    #title {
+      position: absolute;
+	  right: 56.25vw;
+      top: 9.25vh;
+      font-size: 2.96vh;  
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600; /* Semibold */
+      letter-spacing: -0.22vw; 
+      color: #000;      
+	  text-transform: uppercase; 
+	  }  
+	#date {
+	  position: absolute;
+	  left: 5.25vw;
+	  bottom: 9.25vh;
+      font-size: 2.96vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600; 
+      letter-spacing: -0.22vw; /* Extra space between letters */
+      color: #000;     
+		}  
+	#h1 {
+	  position: absolute; 
+      right: 56.25vw;
+	  bottom: 9.25vh;
+      font-size: 4.44vh; transform: scaleY(1.25);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold; 
+      color: #000;
+	  text-transform: uppercase;
+	  }  
+	#h2 {
+	  position: absolute; 
+      right: 56.25vw;     
+      bottom: 15vh;     
+      font-size: 3.7vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: regular; 
+	  letter-spacing: -0.22vw;
+      color: #000;
+	  <span style="text-transform: capitalize;">Architect</span> on the 
+      <span style="text-transform: capitalize;">path</span> to 
+      <span style="text-transform: capitalize;">practice</span>.
+	  }
+	  
+    .sections {
+	  position: absolute;
+	  left: 5.25vw; 
+      bottom: 45vh;
+	  }
+	 #h3,#h4,#h5,#h6 {
+      font-size: 2.25vh; 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: regular;
+      color: #000;
+	  text-transform: capitalize;
+	  text-decoration: none;      
+      color: inherit;
+	  }	
+	.sections a {
+	  color: inherit;       
+      text-decoration: none;     
+      font-weight: normal;        
+      } 
+	.sections a:hover {
+      text-decoration: none;      
+      color: inherit;             
+      font-weight: bold;
+	  }
+	  
+    .palette {
+	  position: absolute;
+      bottom: 22.5vh; 
+      left: 35.75vw; 
+      display: flex;
+      gap: 0.35vw; 
+      width: 100%; 
+      height: 3.5vh; 
+    }
+    .square {
+      height: 3.5vh; 
+      width: 3.5vh; 	
+    }
+    /* Individual control for each square */
+    .square1 {
+      background-color: rgb(0, 0, 0);
+    }
+    .square2 {
+      background-color: rgb(77, 45, 84);
+    }
+    .square3 {
+      background-color: rgb(161, 53, 53);
+    }
+    .square4 {
+      background-color: rgb(232, 65, 65);
+    }	  
+
+    .navicon {
+  position: fixed;    
+  top: 9.25vh;            
+  left: 5.25vw;          
+  width: 3.5vh;          
+  cursor: pointer;
+  z-index: 1010;
+}
+    .bar {
+  height: 0.2vh;           
+  width: 3.5vh;         
+  background-color: black;
+  margin: 1vh 0;         
+  border-radius: 0.2vh;
+  transition: 0.3s;
+}
+.navicon.active .bar {
+  background-color: white; 
+}
+.navicon.active .bar:nth-child(2) {
+  opacity: 0; 
+}
+.navicon.active .bar:nth-child(1) {
+  transform: translateY(1.175vh) rotate(45deg); 
+}
+
+.navicon.active .bar:nth-child(3) {
+  transform: translateY(-1.175vh) rotate(-45deg); 
+}
+	  .navicon:hover .bar {
+          transform: scaleY(4);   /* makes bars appear 'bold' when hovered */
+}
+      .navicon.active:hover .bar:nth-child(1) {
+          transform: translateY(1.175vh) rotate(45deg) scaleY(4); 
+}
+      .navicon.active:hover .bar:nth-child(3) {
+          transform: translateY(-1.175vh) rotate(-45deg) scaleY(4);
+}
+	 .sidebar {
+  position: fixed;
+  top: 0;
+  left: -20vw;
+  width: 20vw;
+  height: 100%;
+  background-color: black;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.navmenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.25vh; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  margin-left: 5.25vw;
+}
+
+.navmenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navmenu a:hover {
+  text-decoration: none;      
+  color: white;             
+  font-weight: bold;
+}
+	  
+	  #home_page_00 {
+		  position: absolute;
+		  right: 5.25vw;
+		  top: 9.25vh;
+		  height: 81.5vh;
+		  width: 81.5vh;
+	  }
+	  #home_page_01 {
+		  opacity: 0;
+	  }
+	   #home_page_02 {
+		  opacity: 0;
+	  }
+	  #home_page_03 {
+		  opacity: 0;
+	  }
+	  #home_page_04 {
+		  opacity: 0;
+	  }
+	  
+	.menu_container {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 7.5vh;
+		display: flex;
+		justify-content: center;
+		text-decoration: none;
+		background-color: white;
+	}
+	.menu_text {
+
+		transform: translateY(2.5vh);
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.75vh;
+		text-transform: uppercase;
+	}
+	.menu_text a {
+		text-decoration: none;
+		color: black;
+	}
+	.menu_text a:hover {
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+	  
+  </style>
+	
+</head>
+	
+<body>
+	<div id="title">Portfolio</div>
+    <div id="date">2025</div>
+    <div id="h1">Maryame Benjelloun</div>
+	<div id="h2">Architect on The Path to Practice</div>
+    <div class="palette">
+     <div class="square square1" id="square1"></div>
+     <div class="square square2" id="square2"></div>
+     <div class="square square3" id="square3"></div>
+     <div class="square square4" id="square4"></div>
+</div>
+	
+<div class="sections">
+	 <div id="h3">
+	   <a href="architecture_studio.html">01. Architecture Studio</a></div>
+     <div id="h4">
+	   <a href="design_build.html">02. Design &amp; Build</a></div>
+	 <div id="h5">
+	   <a href="beyond_the_brief.html">03. Beyond the Brief</a></div>
+	 <div id="h6">
+	   <a href="lets_connect.html">04. Let's connect !</a></div>
+  </div>
+			
+<img src="Images/home_page_00.JPG" id="home_page_00" alt=""/>
+<img src="Images/home_page_01.JPG" id="home_page_01" alt=""/>
+<img src="Images/home_page_02.JPG" id="home_page_02" alt=""/>
+<img src="Images/home_page_03.JPG" id="home_page_03" alt=""/>
+<img src="Images/home_page_04.JPG" id="home_page_04" alt=""/>
+	
+<div class="navicon" id="navicon">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+	
+<div class="sidebar" id="sidebar">
+  <nav class="navmenu">
+	<a href="index.html">Home Page</a>
+    <a href="architecture_studio.html" style="margin-top: 1vw;">Architecture Studio</a>
+	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Resonant Heritage</a>
+	  <a href="aromatic_landscape.html" style="margin-left: 2vw; font-size: 1.90vh;">Aromatic Landscape</a>
+	  <a href="shared_crossings.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Shared Crossings</a>
+    <a href="design_build.html" style="margin-top: 1vw;">Design &amp; Build </a>
+	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Interlacing</a>
+	  <a href="stair_house.html" style="margin-left: 2vw; font-size: 1.90vh;">The Stair House</a>
+	  <a href="chef_corner.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Mini Chef's Corner</a>
+	<a href="beyond_the_brief.html" style="margin-top: 1vw;">Beyond the Brief </a>
+	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Golden</a>
+	  <a href="open_sesame.html" style="margin-left: 2vw; font-size: 1.90vh;">Open Sesame</a>
+	  <a href="spirit.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Spirit</a>
+	<a href="lets_connect.html" style="margin-top: 1vw;">Let's Connect </a>	  
+  </nav>
+	</div>
+	
+	<div class="menu_container" id="menu_container">
+		<div class="menu_text" id="menu_text">
+			<a href="index.html" style="margin-right: 6.35vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6.35vw; text-decoration: none; color: black;">Let's Connect</a>
+		</div>
+	</div>
+	
+	
+<script>
+    const navicon = document.getElementById("navicon");
+    const sidebar = document.getElementById("sidebar");
+
+    navicon.addEventListener("click", () => {
+      navicon.classList.toggle("active");
+      sidebar.classList.toggle("open"); 
+    });
+	
+const h3 = document.getElementById('h3');
+const homePageImage01 = document.getElementById('home_page_01');
+const square1 = document.getElementById('square1');
+const square2 = document.getElementById('square2');
+const square3 = document.getElementById('square3');
+const square4 = document.getElementById('square4');
+
+homePageImage01.style.opacity = '0';
+homePageImage01.style.position = 'absolute';
+homePageImage01.style.right = '5.25vw';
+homePageImage01.style.top = '9.25vh';
+homePageImage01.style.height = '81.5vh';
+homePageImage01.style.width = '81.5vh';
+homePageImage01.style.transition = 'opacity 0.5s ease';
+
+h3.addEventListener('mouseenter', () => {
+  homePageImage01.style.opacity = '1';
+  square1.style.backgroundColor = '#2A1628';
+  square2.style.backgroundColor = '#9a365f';
+  square3.style.backgroundColor = '#d38b4a';
+  square4.style.backgroundColor = '#e0c5ac';
+});
+
+h3.addEventListener('mouseleave', () => {
+  homePageImage01.style.opacity = '0';
+  square1.style.backgroundColor = 'rgb(0,0,0)';
+  square2.style.backgroundColor = 'rgb(77,45,84)';
+  square3.style.backgroundColor = 'rgb(161,53,53)';
+  square4.style.backgroundColor = 'rgb(232,65,65)';
+
+});
+
+const h4 = document.getElementById('h4');
+const homePageImage02 = document.getElementById('home_page_02');
+
+homePageImage02.style.opacity = '0';
+homePageImage02.style.position = 'absolute';
+homePageImage02.style.right = '5.25vw';
+homePageImage02.style.top = '9.25vh';
+homePageImage02.style.height = '81.5vh';
+homePageImage02.style.width = '81.5vh';
+homePageImage02.style.transition = 'opacity 0.5s ease';
+
+h4.addEventListener('mouseenter', () => {
+  homePageImage02.style.opacity = '1';
+  square1.style.backgroundColor = '#401a34';
+  square2.style.backgroundColor = '#4e6670';
+  square3.style.backgroundColor = '#c49193';
+  square4.style.backgroundColor = '#93dce4';
+
+});
+
+h4.addEventListener('mouseleave', () => {
+  homePageImage02.style.opacity = '0';
+  square1.style.backgroundColor = 'rgb(0,0,0)';
+  square2.style.backgroundColor = 'rgb(77,45,84)';
+  square3.style.backgroundColor = 'rgb(161,53,53)';
+  square4.style.backgroundColor = 'rgb(232,65,65)';
+});
+	
+const h5 = document.getElementById('h5');
+const homePageImage03 = document.getElementById('home_page_03');
+
+
+homePageImage03.style.opacity = '0';
+homePageImage03.style.position = 'absolute';
+homePageImage03.style.right = '5.25vw';
+homePageImage03.style.top = '9.25vh';
+homePageImage03.style.height = '81.5vh';
+homePageImage03.style.width = '81.5vh';
+homePageImage03.style.transition = 'opacity 0.5s ease';
+
+h5.addEventListener('mouseenter', () => {
+  homePageImage03.style.opacity = '1';
+  square1.style.backgroundColor = '#181632';
+  square2.style.backgroundColor = '#232041';
+  square3.style.backgroundColor = '#725776';
+  square4.style.backgroundColor = '#be8cac';
+
+});
+
+h5.addEventListener('mouseleave', () => {
+  homePageImage03.style.opacity = '0';
+  square1.style.backgroundColor = 'rgb(0,0,0)';
+  square2.style.backgroundColor = 'rgb(77,45,84)';
+  square3.style.backgroundColor = 'rgb(161,53,53)';
+  square4.style.backgroundColor = 'rgb(232,65,65)';
+
+});
+	
+const h6 = document.getElementById('h6');
+const homePageImage04 = document.getElementById('home_page_04');
+
+homePageImage04.style.opacity = '0';
+homePageImage04.style.position = 'absolute';
+homePageImage04.style.right = '5.25vw';
+homePageImage04.style.top = '9.25vh';
+homePageImage04.style.height = '81.5vh';
+homePageImage04.style.width = '81.5vh';
+homePageImage04.style.transition = 'opacity 0.5s ease';
+
+h6.addEventListener('mouseenter', () => {
+  homePageImage04.style.opacity = '1';
+  square1.style.backgroundColor = '#0c0046';
+  square2.style.backgroundColor = '#612b71';
+  square3.style.backgroundColor = '#c35da8';
+  square4.style.backgroundColor = '#86d7e8';
+
+});
+
+h6.addEventListener('mouseleave', () => {
+  homePageImage04.style.opacity = '0'; 
+  square1.style.backgroundColor = 'rgb(0,0,0)';
+  square2.style.backgroundColor = 'rgb(77,45,84)';
+  square3.style.backgroundColor = 'rgb(161,53,53)';
+  square4.style.backgroundColor = 'rgb(232,65,65)';
+});
+	
+  </script>
+ </body> 
+</html>
