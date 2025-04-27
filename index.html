@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
 <title>portfolio</title>
 	
   <style>
@@ -11,36 +11,36 @@
       margin: 0;          
       padding: 0;         
       width: 100vw;       
-      overflow-x: hidden; /* Prevent horizontal scrollbar */
+      overflow-x: hidden; 
     }
 
 	  
     #title {
       position: absolute;
-	  right: 56.25vw;
-      top: 9.25vh;
-      font-size: 2.96vh;  
+	  right: 53.94vw;
+      top: 4.75vw;
+      font-size: 1.12vw;  
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600; /* Semibold */
-      letter-spacing: -0.22vw; 
+      font-weight: 600;
+      letter-spacing: -0.12vw; 
       color: #000;      
 	  text-transform: uppercase; 
 	  }  
 	#date {
 	  position: absolute;
-	  left: 5.25vw;
-	  bottom: 9.25vh;
-      font-size: 2.96vh; 
+	  left: 4.75vw;
+	  top: 44.6vw;
+      font-size: 1.12vw; 
       font-family: 'Montserrat', sans-serif;
       font-weight: 600; 
-      letter-spacing: -0.22vw; /* Extra space between letters */
+      letter-spacing: -0.12vw; /* Extra space between letters */
       color: #000;     
 		}  
 	#h1 {
 	  position: absolute; 
-      right: 56.25vw;
-	  bottom: 9.25vh;
-      font-size: 4.44vh; transform: scaleY(1.25);
+      top: 44vw;
+	  right: 53.94vw;
+      font-size: 1.62vw; transform: scaleY(1.25);
       font-family: 'Montserrat', sans-serif;
       font-weight: bold; 
       color: #000;
@@ -48,12 +48,12 @@
 	  }  
 	#h2 {
 	  position: absolute; 
-      right: 56.25vw;     
-      bottom: 15vh;     
-      font-size: 3.7vh; 
+      right: 53.94vw;     
+      top: 41.87vw;     
+      font-size: 1.37vw; 
       font-family: 'Montserrat', sans-serif;
       font-weight: regular; 
-	  letter-spacing: -0.22vw;
+	  letter-spacing: -0.12vw;
       color: #000;
 	  <span style="text-transform: capitalize;">Architect</span> on the 
       <span style="text-transform: capitalize;">path</span> to 
@@ -62,11 +62,11 @@
 	  
     .sections {
 	  position: absolute;
-	  left: 5.25vw; 
-      bottom: 45vh;
+	  left: 4.75vw; 
+      top: 21.85vw;
 	  }
 	 #h3,#h4,#h5,#h6 {
-      font-size: 2.25vh; 
+      font-size: 0.87vw; 
       font-family: 'Montserrat', sans-serif;
       font-weight: regular;
       color: #000;
@@ -87,18 +87,17 @@
 	  
     .palette {
 	  position: absolute;
-      bottom: 22.5vh; 
-      left: 35.75vw; 
+      top: 39vw; 
+      left: 38vw; 
       display: flex;
-      gap: 0.35vw; 
+      gap: 0.33vw; 
       width: 100%; 
-      height: 3.5vh; 
+      height: 1.8vw; 
     }
     .square {
-      height: 3.5vh; 
-      width: 3.5vh; 	
+      height: 1.8vw; 
+      width: 1.8vw; 	
     }
-    /* Individual control for each square */
     .square1 {
       background-color: rgb(0, 0, 0);
     }
@@ -114,18 +113,18 @@
 
     .navicon {
   position: fixed;    
-  top: 9.25vh;            
-  left: 5.25vw;          
-  width: 3.5vh;          
+  top: 4.75vw;            
+  left: 4.75vw;          
+  width: 1.8vw;          
   cursor: pointer;
   z-index: 1010;
 }
     .bar {
-  height: 0.2vh;           
-  width: 3.5vh;         
+  height: 0.1vw;           
+  width: 1.8vw;         
   background-color: black;
-  margin: 1vh 0;         
-  border-radius: 0.2vh;
+  margin: 0.63vw 0;         
+  border-radius: 0.1vw;
   transition: 0.3s;
 }
 .navicon.active .bar {
@@ -135,20 +134,20 @@
   opacity: 0; 
 }
 .navicon.active .bar:nth-child(1) {
-  transform: translateY(1.175vh) rotate(45deg); 
+  transform: translateY(0.72vw) rotate(45deg); 
 }
 
 .navicon.active .bar:nth-child(3) {
-  transform: translateY(-1.175vh) rotate(-45deg); 
+  transform: translateY(-0.72vw) rotate(-45deg); 
 }
 	  .navicon:hover .bar {
           transform: scaleY(4);   /* makes bars appear 'bold' when hovered */
 }
       .navicon.active:hover .bar:nth-child(1) {
-          transform: translateY(1.175vh) rotate(45deg) scaleY(4); 
+          transform: translateY(0.72vw) rotate(45deg) scaleY(4); 
 }
       .navicon.active:hover .bar:nth-child(3) {
-          transform: translateY(-1.175vh) rotate(-45deg) scaleY(4);
+          transform: translateY(-0.72vw) rotate(-45deg) scaleY(4);
 }
 	 .sidebar {
   position: fixed;
@@ -170,10 +169,10 @@
 .navmenu {
   display: flex;
   flex-direction: column;
-  font-size: 2.25vh; 
+  font-size: 1vw; 
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
-  margin-left: 5.25vw;
+  margin-left: 4.75vw;
 }
 
 .navmenu a {
@@ -189,10 +188,10 @@
 	  
 	  #home_page_00 {
 		  position: absolute;
-		  right: 5.25vw;
-		  top: 9.25vh;
-		  height: 81.5vh;
-		  width: 81.5vh;
+		  right: 4.75vw;
+		  top: 4.75vw;
+		  height: 41.37vw;
+		  width: 41.37vw;
 	  }
 	  #home_page_01 {
 		  opacity: 0;
@@ -211,17 +210,18 @@
 		position: fixed;
 		top: 0;
 		width: 100vw;
-		height: 7.5vh;
+		height: 3.5vw;
 		display: flex;
 		justify-content: center;
 		text-decoration: none;
 		background-color: white;
+		z-index: 1000;
 	}
 	.menu_text {
 
-		transform: translateY(2.5vh);
+		transform: translateY(1.272vw);
 		font-family: 'Montserrat', sans-serif;
-		font-size: 1.75vh;
+		font-size: 0.87vw;
 		text-transform: uppercase;
 	}
 	.menu_text a {
@@ -275,30 +275,30 @@
 	
 <div class="sidebar" id="sidebar">
   <nav class="navmenu">
-	<a href="index.html">Home Page</a>
-    <a href="architecture_studio.html" style="margin-top: 1vw;">Architecture Studio</a>
-	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Resonant Heritage</a>
-	  <a href="aromatic_landscape.html" style="margin-left: 2vw; font-size: 1.90vh;">Aromatic Landscape</a>
-	  <a href="shared_crossings.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Shared Crossings</a>
-    <a href="design_build.html" style="margin-top: 1vw;">Design &amp; Build </a>
-	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Interlacing</a>
-	  <a href="stair_house.html" style="margin-left: 2vw; font-size: 1.90vh;">The Stair House</a>
-	  <a href="chef_corner.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Mini Chef's Corner</a>
-	<a href="beyond_the_brief.html" style="margin-top: 1vw;">Beyond the Brief </a>
-	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 1.90vh;">Golden</a>
-	  <a href="open_sesame.html" style="margin-left: 2vw; font-size: 1.90vh;">Open Sesame</a>
-	  <a href="spirit.html" style="margin-left: 2.5vw; font-size: 1.90vh;">Spirit</a>
-	<a href="lets_connect.html" style="margin-top: 1vw;">Let's Connect </a>	  
+	<a href="index.html" style="text-transform: uppercase;">Home Page</a>
+    <a href="architecture_studio.html" style="margin-top: 1vw; text-transform: uppercase;">Architecture Studio</a>
+	  <a href="resonant_heritage.html" style="margin-left: 1.5vw; font-size: 0.87vw; ">Resonant Heritage</a>
+	  <a href="aromatic_landscape.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Aromatic Landscape</a>
+	  <a href="shared_crossings.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Shared Crossings</a>
+    <a href="design_build.html" style="margin-top: 1vw; text-transform: uppercase;">Design &amp; Build </a>
+	  <a href="interlacing.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Interlacing</a>
+	  <a href="stair_house.html" style="margin-left: 1.5vw; font-size: 0.87vw;">The Stair House</a>
+	  <a href="chef_corner.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Mini Chef's Corner</a>
+	<a href="beyond_the_brief.html" style="margin-top: 1vw; text-transform: uppercase;">Beyond the Brief </a>
+	  <a href="golden.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Golden</a>
+	  <a href="open_sesame.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Open Sesame</a>
+	  <a href="spirit.html" style="margin-left: 1.5vw; font-size: 0.87vw;">Spirit</a>
+	<a href="lets_connect.html" style="margin-top: 1vw; text-transform: uppercase;">Let's Connect </a>	  
   </nav>
 	</div>
 	
 	<div class="menu_container" id="menu_container">
 		<div class="menu_text" id="menu_text">
-			<a href="index.html" style="margin-right: 6.35vw; text-decoration: none; color: black;">Home Page</a>
-			<a href="architecture_studio.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Architecture Studio</a>
-			<a href="design_build.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Design &amp; Build</a>
-			<a href="beyond_the_brief.html" style="margin-left: 6.35vw; margin-right: 6.35vw; text-decoration: none; color: black;">Beyond the Brief</a>
-			<a href="lets_connect.html" style="margin-left: 6.35vw; text-decoration: none; color: black;">Let's Connect</a>
+			<a href="index.html" style="margin-right: 6vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6vw; text-decoration: none; color: black;">Let's Connect</a>
 		</div>
 	</div>
 	
@@ -321,10 +321,10 @@ const square4 = document.getElementById('square4');
 
 homePageImage01.style.opacity = '0';
 homePageImage01.style.position = 'absolute';
-homePageImage01.style.right = '5.25vw';
-homePageImage01.style.top = '9.25vh';
-homePageImage01.style.height = '81.5vh';
-homePageImage01.style.width = '81.5vh';
+homePageImage01.style.right = '4.75vw';
+homePageImage01.style.top = '4.75vw';
+homePageImage01.style.height = '41.37vw';
+homePageImage01.style.width = '41.37vw';
 homePageImage01.style.transition = 'opacity 0.5s ease';
 
 h3.addEventListener('mouseenter', () => {
@@ -349,10 +349,10 @@ const homePageImage02 = document.getElementById('home_page_02');
 
 homePageImage02.style.opacity = '0';
 homePageImage02.style.position = 'absolute';
-homePageImage02.style.right = '5.25vw';
-homePageImage02.style.top = '9.25vh';
-homePageImage02.style.height = '81.5vh';
-homePageImage02.style.width = '81.5vh';
+homePageImage02.style.right = '4.75vw';
+homePageImage02.style.top = '4.75vw';
+homePageImage02.style.height = '41.37vw';
+homePageImage02.style.width = '41.37vw';
 homePageImage02.style.transition = 'opacity 0.5s ease';
 
 h4.addEventListener('mouseenter', () => {
@@ -378,10 +378,10 @@ const homePageImage03 = document.getElementById('home_page_03');
 
 homePageImage03.style.opacity = '0';
 homePageImage03.style.position = 'absolute';
-homePageImage03.style.right = '5.25vw';
-homePageImage03.style.top = '9.25vh';
-homePageImage03.style.height = '81.5vh';
-homePageImage03.style.width = '81.5vh';
+homePageImage03.style.right = '4.75vw';
+homePageImage03.style.top = '4.75vw';
+homePageImage03.style.height = '41.37vw';
+homePageImage03.style.width = '41.37vw';
 homePageImage03.style.transition = 'opacity 0.5s ease';
 
 h5.addEventListener('mouseenter', () => {
@@ -407,10 +407,10 @@ const homePageImage04 = document.getElementById('home_page_04');
 
 homePageImage04.style.opacity = '0';
 homePageImage04.style.position = 'absolute';
-homePageImage04.style.right = '5.25vw';
-homePageImage04.style.top = '9.25vh';
-homePageImage04.style.height = '81.5vh';
-homePageImage04.style.width = '81.5vh';
+homePageImage04.style.right = '4.75vw';
+homePageImage04.style.top = '4.75vw';
+homePageImage04.style.height = '41.37vw';
+homePageImage04.style.width = '41.37vw';
 homePageImage04.style.transition = 'opacity 0.5s ease';
 
 h6.addEventListener('mouseenter', () => {
