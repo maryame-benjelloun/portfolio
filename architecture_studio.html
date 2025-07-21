@@ -3,16 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 <title>Architecture Studio</title>
 	
   <style>
 	  
     html, body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    overflow-x: hidden;
+      margin: 0;          
+      padding: 0;         
+      width: 100vw;       
+      overflow-x: hidden; 
+	  cursor: none !important;
     }
+	  a:hover {
+       cursor: none;
+      }
+	  
+      .custom-cursor {
+      position: fixed;
+      top: -5vw;
+      left: -5vw;
+      pointer-events: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.37vw;
+      font-weight: bold;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+      transition: transform 0.05s linear;
+    }
+	  
+	  .custom-cursor-2 {
+      position: fixed;
+      top: -5vw;
+      left: -5vw;
+	  color: white;
+		-webkit-text-stroke: 0.05vw white;  /* Sharp black outline */
+        -moz-text-stroke: 0.05vw white;     /* Firefox support */
+        text-stroke: 0.05vw white;          /* Standard property (not fully supported) */
+      pointer-events: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.37vw;
+      font-weight: bold;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.05s linear;
+    }	
 	  
     #title {
       position: absolute;
@@ -51,7 +86,7 @@
       top: 41.87vw;     
       font-size: 1.37vw; 
       font-family: 'Montserrat', sans-serif;
-      font-weight: regular; 
+      font-weight: normal; 
 	  letter-spacing: -0.12vw;
       color: #000;
 	  text-transform: capitalize;
@@ -65,12 +100,10 @@
 	.sections a {
 	  font-size: 0.87vw; 
       font-family: 'Montserrat', sans-serif;
-      font-weight: regular;
       color: #000;
 	  text-transform: capitalize;</strong>
 	  color: inherit;       
       text-decoration: none;     
-      font-weight: normal;        
       } 
 	.sections a:hover {
       text-decoration: none;      
@@ -182,14 +215,14 @@
 	  
 	  #home_page_01 {
           position: absolute;
-		  right: 4.75vw;
+		  right: 5.25vw;
 		  top: 4.75vw;
 		  height: 41.37vw;
 		  width: 41.37vw;
 	  }
 	   #project_01, #project_02, #project_03 {
 		  position: absolute;
-		  right: 4.75vw;
+		  right: 5.25vw;
 		  top: 4.75vw;
 		  height: 41.37vw;
 		  width: 41.37vw;
@@ -201,6 +234,7 @@
 		width: 100vw;
 		height: 3.5vw;
 		display: flex;
+		margin-left: -0.5vw;
 		justify-content: center;
 		text-decoration: none;
 		background-color: white;
@@ -279,13 +313,16 @@
 	
 	<div class="menu_container" id="menu_container">
 		<div class="menu_text" id="menu_text">
-			<a href="index.html" style="margin-right: 6vw; text-decoration: none; color: black;">Home Page</a>
-			<a href="architecture_studio.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Architecture Studio</a>
-			<a href="design_build.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Design &amp; Build</a>
-			<a href="beyond_the_brief.html" style="margin-left: 6vw; margin-right: 6vw; text-decoration: none; color: black;">Beyond the Brief</a>
-			<a href="lets_connect.html" style="margin-left: 6vw; text-decoration: none; color: black;">Let's Connect</a>
+			<a href="index.html" style="margin-left: 4.75vw; margin-right: 6.2vw; text-decoration: none; color: black;">Home Page</a>
+			<a href="architecture_studio.html" style="margin-left: 6.2vw; margin-right: 6.2vw; text-decoration: none; color: black;">Architecture Studio</a>
+			<a href="design_build.html" style="margin-left: 6.2vw; margin-right: 6.2vw; text-decoration: none; color: black;">Design &amp; Build</a>
+			<a href="beyond_the_brief.html" style="margin-left: 6.2vw; margin-right: 6.2vw; text-decoration: none; color: black;">Beyond the Brief</a>
+			<a href="lets_connect.html" style="margin-left: 6.2vw; margin-right: 4.75vw; text-decoration: none; color: black;">Let's Connect</a>
 		</div>
 	</div>
+	
+	<div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-2" id="cursor2"></div>
 	
 <script>
 const navicon = document.getElementById("navicon");
@@ -310,11 +347,72 @@ const square2 = document.getElementById('square2');
 const square3 = document.getElementById('square3');
 const square4 = document.getElementById('square4');
 
-// Set initial styles
+const titles = [h3, h4, h5];
+const images = [project01, project02, project03];
+const colorSets = [
+  ['#E4C3E5', '#89A3D6', '#819576', '#9D4646'],
+  ['#89A3D6', '#E4C3E5', '#9D4646', '#819576'],
+  ['#819576', '#9D4646', '#89A3D6', '#E4C3E5'],
+];
+
+const squares = [square1, square2, square3, square4];
+const defaultColors = ['#2A1628', '#9a365f', '#d38b4a', '#e0c5ac'];
+
+let currentIndex = 0;
+let cycleInterval;
+	
+function activateIndex(index) {
+  if(index === 0) {
+    images.forEach(img => img.style.opacity = '0');
+    squares.forEach((square, i) => {
+      square.style.backgroundColor = defaultColors[i];
+    });
+    titles.forEach(title => {
+      title.style.fontWeight = 'normal';
+    });
+  } else {
+    const titleIdx = index - 1;
+    images.forEach(img => img.style.opacity = '0');
+    images[titleIdx].style.opacity = '1';
+    squares.forEach((square, i) => {
+      square.style.backgroundColor = colorSets[titleIdx][i];
+    });
+    titles.forEach((title, i) => {
+      title.style.fontWeight = (i === titleIdx) ? 'bold' : 'normal';
+    });
+  }
+}
+
+function startCycle() {
+  cycleInterval = setInterval(() => {
+    activateIndex(currentIndex);
+    currentIndex = (currentIndex + 1) % (titles.length + 1); // 0 to 4 inclusive
+  }, 1500);
+}
+
+function stopCycle() {
+  clearInterval(cycleInterval);
+}
+
+titles.forEach((title, i) => {
+  title.addEventListener('mouseenter', () => {
+    stopCycle();
+    activateIndex(i + 1);
+  });
+  title.addEventListener('mouseleave', () => {
+    currentIndex = i + 2;
+    if (currentIndex > titles.length) currentIndex = 0;
+    startCycle();
+  });
+});
+
+startCycle();
+	
+	
 [project01, project02, project03].forEach(img => {
   img.style.opacity = '0';
   img.style.position = 'absolute';
-  img.style.right = '4.75vw';
+  img.style.right = '5.25vw';
   img.style.top = '4.75vw';
   img.style.height = '41.37vw';
   img.style.width = '41.37vw';
@@ -377,6 +475,41 @@ h5.addEventListener('mouseleave', () => {
   square3.style.backgroundColor = '#d38b4a';
   square4.style.backgroundColor = '#e0c5ac';
 });
+	
+const letters = ['P', 'R', 'O', 'J', 'E', 'C', 'T'];
+let letterCycleIndex = 0;
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+
+function updateLetter() {
+  cursor.textContent = letters[letterCycleIndex];
+  letterCycleIndex = (letterCycleIndex + 1) % letters.length;
+}
+
+updateLetter();
+setInterval(updateLetter, 1500);
+	
+    const letters2 = ['P', 'R', 'O', 'J', 'E', 'C', 'T'];
+    let currentIndex2 = 0;
+    const cursor2 = document.getElementById('cursor2');
+
+    document.addEventListener('mousemove', e => {
+      cursor2.style.top = e.clientY + 'px';
+      cursor2.style.left = e.clientX + 'px';
+    });
+
+    function updateLetter2() {
+      cursor2.textContent = letters2[currentIndex2];
+      currentIndex2 = (currentIndex2 + 1) % letters2.length;
+    }
+
+    updateLetter2();
+    setInterval(updateLetter2, 1500);
+	
 </script>
 
 	
